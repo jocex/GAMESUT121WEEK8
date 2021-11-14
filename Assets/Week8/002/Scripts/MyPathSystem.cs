@@ -5,6 +5,7 @@ using System;
 
 public class MyPathSystem : MonoBehaviour {
 
+    public GameObject mazePrefab;
     public enum SeedType { RANDOM, CUSTOM }
     [Header("Random Data")]
     public SeedType seedType = SeedType.RANDOM;
@@ -26,6 +27,7 @@ public class MyPathSystem : MonoBehaviour {
             random = new System.Random();
         else if (seedType == SeedType.CUSTOM)
             random = new System.Random(seed);
+             
     }
 
     void CreatePath() {
@@ -46,6 +48,10 @@ public class MyPathSystem : MonoBehaviour {
             }
 
             gridCellList.Add(new GridCell(currentPosition));
+            
+            GameObject m = Instantiate(mazePrefab,gridCellList[i].location, Quaternion.identity);
+            
+        
 
         }
     }

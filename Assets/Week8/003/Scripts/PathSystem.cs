@@ -18,9 +18,16 @@ public class PathSystem : MonoBehaviour {
     public float cellSize = 1.0f;
 
     public Transform startLocation;
+    public GameObject mazePrefab;
 
     // Start is called before the first frame update
     void Start() {
+         SetSeed();
+
+            if (animatedPath)
+                StartCoroutine(CreatePathRoutine());
+            else
+                CreatePath();
 
     }
 
@@ -51,6 +58,8 @@ public class PathSystem : MonoBehaviour {
             }
 
             gridCellList.Add(new MyGridCell(currentPosition));
+            
+             GameObject m = Instantiate(mazePrefab,gridCellList[i].location, Quaternion.identity);
 
         }
     }
@@ -90,13 +99,13 @@ public class PathSystem : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+     /*   if (Input.GetKeyDown(KeyCode.Space)) {
             SetSeed();
 
             if (animatedPath)
                 StartCoroutine(CreatePathRoutine());
             else
                 CreatePath();
-        }
+        }*/
     }
 }
