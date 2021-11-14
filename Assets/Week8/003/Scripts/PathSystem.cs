@@ -19,6 +19,7 @@ public class PathSystem : MonoBehaviour {
 
     public Transform startLocation;
     public GameObject mazePrefab;
+    public GameObject[] powerups;
 
     // Start is called before the first frame update
     void Start() {
@@ -28,6 +29,13 @@ public class PathSystem : MonoBehaviour {
                 StartCoroutine(CreatePathRoutine());
             else
                 CreatePath();
+        
+        powerups = new GameObject[2];
+        powerups[0]=GameObject.FindGameObjectWithTag("Bad");
+        powerups[1]=GameObject.FindGameObjectWithTag("Good");        
+
+    
+        
 
     }
 
@@ -60,6 +68,7 @@ public class PathSystem : MonoBehaviour {
             gridCellList.Add(new MyGridCell(currentPosition));
             
              GameObject m = Instantiate(mazePrefab,gridCellList[i].location, Quaternion.identity);
+             GameObject p = Instantiate(powerups[Random.Range(0,2)],gridCellList[i].location,Quaternion.identity);
 
         }
     }
