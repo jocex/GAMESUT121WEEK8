@@ -6,6 +6,7 @@ public class GoodScore : MonoBehaviour
 {
     CircleCollider2D GoodCircle;
     bool inGood;
+   
 
     private void Awake(){
         GoodCircle=GetComponent<CircleCollider2D>();
@@ -14,14 +15,17 @@ public class GoodScore : MonoBehaviour
 
       public void OpenGood(){
         gameObject.SetActive(false) ;
+         
+
     }
   
    void Update(){
+
         if(inGood == true){
              OpenGood();
              ScoreManager.AddToScore();
          }
-
+        
     }
 
     

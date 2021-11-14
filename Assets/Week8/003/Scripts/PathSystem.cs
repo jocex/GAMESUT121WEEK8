@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PathSystem : MonoBehaviour {
 
     public enum SeedType { RANDOM, CUSTOM }
@@ -68,11 +69,15 @@ public class PathSystem : MonoBehaviour {
             gridCellList.Add(new MyGridCell(currentPosition));
             
              GameObject m = Instantiate(mazePrefab,gridCellList[i].location, Quaternion.identity);
-             GameObject p = Instantiate(powerups[Random.Range(0,2)],gridCellList[i].location,Quaternion.identity);
+             
 
         }
+        for (int j=0; j<5; j++){
+  
+            GameObject p = Instantiate(powerups[Random.Range(0,2)],gridCellList[Random.Range(2,10)].location,Quaternion.identity);
+        }
     }
-
+  
     IEnumerator CreatePathRoutine() {
 
         gridCellList.Clear();

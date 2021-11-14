@@ -12,7 +12,7 @@ public class MoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-          transform.position = new Vector3(-12,-6,0);
+          transform.position = new Vector3(-12,-8,0);
     }
 
     void MoveObject(){

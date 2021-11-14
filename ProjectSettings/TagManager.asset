@@ -8,6 +8,8 @@ TagManager:
   - ClickButton
   - GridSystem
   - PathSystem
+  - Bad
+  - Good
   layers:
   - Default
   - TransparentFX
