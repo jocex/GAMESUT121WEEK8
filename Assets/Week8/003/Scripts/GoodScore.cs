@@ -6,19 +6,19 @@ public class GoodScore : MonoBehaviour
 {
     CircleCollider2D GoodCircle;
     bool inGood;
-    public AudioClip Ding;
-    AudioSource audioSource;
+   // public AudioClip Ding;
+   // AudioSource audioSource;
     
    
 
    private void Awake(){
         GoodCircle=GetComponent<CircleCollider2D>();
         GoodCircle.isTrigger = true;
-        audioSource = GetComponent<AudioSource>();
+       //  audioSource = GetComponent<AudioSource>();
     }
 
     private void Start(){
-        //audioSource = GetComponent<AudioSource>();
+       // audioSource = GetComponent<AudioSource>();
     }
 
       public void OpenGood(){
@@ -30,7 +30,7 @@ public class GoodScore : MonoBehaviour
    void Update(){
 
         if(inGood == true){
-              audioSource.PlayOneShot(Ding,1);
+              //audioSource.PlayOneShot(Ding,1);
              OpenGood();
              ScoreManager.AddToScore();
          }
